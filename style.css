@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('./backg.png'); /* Path to your background image */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background image */
+    color: #333; /* Dark text color for readability */
+    font-family: "Lora", serif; /* Elegant serif font */
+    min-height: 100vh;
+    line-height: 1.6; /* Improved line height for readability */
+}
+
+header {
+    font-size: 2rem; /* Larger font size for header */
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #6c5b7b; /* Pastel violet color */
+}
+
+header, 
+form {
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Stack items vertically */
+}
+
+.input-container {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    gap: 0.5rem; /* Space between input fields and button */
+    flex-wrap: wrap; /* Allow items to wrap on small screens */
+    justify-content: center; /* Center items horizontally */
+}
+
+.todo-input, 
+.todo-datetime {
+    padding: 0.5rem;
+    font-size: 1rem; /* Font size for inputs */
+    border: none;
+    background: #f4c6c6; /* Pastel pink background */
+    border-radius: 0.5rem; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 250px; /* Default width */
+}
+
+.todo-datetime {
+    width: 180px; /* Width of the date-time input field */
+}
+
+.todo-button {
+    padding: 0.5rem;
+    font-size: 1rem; /* Font size for the button */
+    border: none;
+    background: #d0e4d6; /* Pastel green for button background */
+    color: #fff; /* Text color */
+    border-radius: 0.5rem; /* Rounded corners */
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.todo-button:hover {
+    background: #b1d4b2; /* Slightly darker pastel green on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+}
+
+.todo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Center the to-do list */
+}
+
+.todo-list {
+    width: 100%;
+    max-width: 600px; /* Max width for better layout */
+    list-style: none;
+    padding: 0;
+}
+
+.todo {
+    margin: 0.5rem;
+    padding: 1rem; /* Increased padding */
+    background: #e2e2e2; /* Pastel gray background */
+    color: #333; /* Dark text color */
+    font-size: 1rem; /* Adjusted font size */
+    display: flex;
+    align-items: center; /* Align items in a single line */
+    justify-content: space-between; /* Space between task and time */
+    border-radius: 0.5rem; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.todo:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+.todo-item {
+    padding: 0; /* Remove extra padding */
+    flex-grow: 1; /* Allow item to take up available space */
+}
+
+.date-time {
+    font-size: 0.9rem; /* Smaller font size for date-time */
+    color: #666; /* Light gray color for date-time */
+    margin-left: 1rem; /* Space between task and date-time */
+}
+
+.trash-btn, 
+.complete-btn {
+    color: #fff;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem; /* Adjust font size */
+    border-radius: 0.5rem; /* Rounded button corners */
+    transition: background 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.complete-btn {
+    background: #d0e4d6; /* Pastel green for complete button */
+}
+
+.complete-btn:hover {
+    background: #b1d4b2; /* Slightly darker pastel green on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+}
+
+.trash-btn {
+    background: #f4c6c6; /* Pastel pink for trash button */
+}
+
+.trash-btn:hover {
+    background: #e2a8a8; /* Slightly darker pastel pink on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.6; /* Slightly more transparent */
+}
+
+.slide {
+    transform: translateX(10rem);
+    opacity: 0;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+    background: #f4c6c6; /* Pastel pink for select box */
+    color: #333; /* Text color for select box */
+    border-radius: 0.5rem; /* Rounded corners */
+    padding: 0.5rem; /* Padding inside select box */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    width: 180px; /* Set width of select box */
+    position: relative; /* Ensure position is relative for pseudo-elements */
+}
+
+select:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    transform: scale(1.02); /* Slightly larger on hover */
+}
+
+.select {
+    margin: 1rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50px;
+}
+
+.select::after {
+    content: "\25BC";
+    position: absolute;
+    background: #d0e4d6; /* Pastel green for arrow */
+    top: 50%; /* Center vertically */
+    right: 1rem; /* Space from the right edge */
+    transform: translateY(-50%); /* Move arrow up by 50% of its height */
+    padding: 0.5rem; /* Adjust padding to fit the icon */
+    pointer-events: none;
+    transition: background 0.3s ease; /* Smooth transition */
+}
+
+/* Media Queries for Responsive Design */
+
+@media (max-width: 768px) {
+    .todo-input,
+    .todo-datetime,
+    .todo-button {
+        width: 100%; /* Full width for inputs and button on small screens */
+        font-size: 1rem; /* Adjust font size */
+    }
+
+    .input-container {
+        flex-direction: column; /* Stack input fields and button vertically on small screens */
+        gap: 0.5rem; /* Space between items */
+    }
+
+    .todo {
+        font-size: 0.9rem; /* Smaller font size for todos on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 1.5rem; /* Smaller font size for header */
+    }
+
+    .todo-input,
+    .todo-datetime {
+        width: 100%; /* Full width for inputs on extra-small screens */
+    }
+
+    .todo-button {
+        width: 100%; /* Full width for button on extra-small screens */
+    }
+
+    .select {
+        width: 100%; /* Full width for select box on extra-small screens */
+    }
+}
